@@ -17,6 +17,6 @@ public class CustomerService {
 	}
 	
 	public Customer findById(final Long id) {
-		return this.customerDAO.findById(id);
+		return this.customerDAO.read(id);
 	}
 }

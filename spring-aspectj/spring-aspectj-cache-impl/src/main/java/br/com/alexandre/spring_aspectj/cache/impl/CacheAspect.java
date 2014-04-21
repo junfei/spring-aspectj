@@ -46,7 +46,7 @@ public class CacheAspect {
 		if (key != null && proceed != null) {
 			try {
 				logger.info("Adicionando objeto de key " + key + " no cache.");
-				client.set(key, 60, proceed);
+				client.set(key, 180, proceed);
 			} catch (final Exception e) {
 				e.printStackTrace();
 			}

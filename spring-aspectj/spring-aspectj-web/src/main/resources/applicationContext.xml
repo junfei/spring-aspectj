@@ -14,11 +14,17 @@
 						http://www.springframework.org/schema/aop 
 						http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
+	<!-- AOP -->
 	<aop:aspectj-autoproxy />
 
+	<!-- Context -->
 	<context:annotation-config />
 	<context:component-scan base-package="br.com.alexandre.spring_aspectj.persistence, br.com.alexandre.spring_aspectj.service, br.com.alexandre.spring_aspectj.cache.impl" annotation-config="true" />
+	
+	<!-- Transaction -->
+	<tx:annotation-driven proxy-target-class="true" />
 
+	<!-- Memcached -->
 	<bean id="memcachedClient" class="net.spy.memcached.spring.MemcachedClientFactoryBean">
 		<property name="servers" value="localhost:11211" />
 		<property name="protocol" value="BINARY" />
@@ -28,15 +34,18 @@
 			</bean>
 		</property>
 	</bean>
-	
+		
+	<!-- EntityManagerFactory -->
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="default" />
 	</bean>
 
+	<!-- TransactionManager -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
+	<!-- ServletContextAttributeExporter -->
 	<bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
 		<property name="attributes">
 			<map>
