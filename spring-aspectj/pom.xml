@@ -141,6 +141,32 @@
 				<version>${aspectj.version}</version>
 			</dependency>
 
+			<!-- Hibernate -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>4.3.4.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>4.3.4.Final</version>
+			</dependency>
+
+			<!-- C3p0 -->
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>0.9.1.2</version>
+			</dependency>
+
+			<!-- MySQL -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.30</version>
+			</dependency>
+
 			<!-- Memcached -->
 			<dependency>
 				<groupId>net.spy</groupId>

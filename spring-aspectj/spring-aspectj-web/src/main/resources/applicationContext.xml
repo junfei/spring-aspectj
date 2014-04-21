@@ -28,7 +28,15 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="default" />
+	</bean>
 
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
 	<bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
 		<property name="attributes">
 			<map>

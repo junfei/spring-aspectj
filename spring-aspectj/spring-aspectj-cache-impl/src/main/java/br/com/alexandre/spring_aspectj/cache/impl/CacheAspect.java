@@ -43,7 +43,7 @@ public class CacheAspect {
 		
 		final Object proceed = pjp.proceed();
 		
-		if (key != null) {
+		if (key != null && proceed != null) {
 			try {
 				logger.info("Adicionando objeto de key " + key + " no cache.");
 				client.set(key, 60, proceed);
